@@ -1,0 +1,17 @@
+<form [formGroup]="pasatiemposForm" style="border: 1px solid #ccc; padding: 20px; border-radius: 8px; max-width: 400px;">
+  <h2>Mis Pasatiempos</h2>
+
+  <div formArrayName="pasatiempos">
+    <button type="button" (click)="agregarPasatiempo()" style="margin-bottom: 15px;">+ Agregar Pasatiempo</button>
+
+    @for (pasatiempo of pasatiempos.controls; track $index; let i = $index) {
+    <div style="margin-bottom: 10px;">
+      <label [for]="'pasatiempo-' + i">Pasatiempo {{ i + 1 }}: </label>
+      <input [id]="'pasatiempo-' + i"
+             type="text"
+             [formControlName]="i"
+             placeholder="Ej: Crochet, lectura...">
+    </div>
+    }
+  </div>
+</form>

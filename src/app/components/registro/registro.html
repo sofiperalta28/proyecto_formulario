@@ -1,0 +1,38 @@
+<form [formGroup]="registroForm" (ngSubmit)="onSubmit()" style="border: 1px solid #ccc; padding: 20px; border-radius: 8px; max-width: 400px; margin-bottom: 20px;">
+  <h2>Formulario de Registro</h2>
+
+  <div style="margin-bottom: 10px;">
+    <label for="nombre">Nombre *: </label>
+    <input id="nombre" type="text" formControlName="nombre" placeholder="Nombre obligatorio">
+  </div>
+
+  <div style="margin-bottom: 10px;">
+    <label for="email">Email *: </label>
+    <input id="email" type="email" formControlName="email" placeholder="email@ejemplo.com">
+  </div>
+
+  <div formGroupName="direccion" style="border: 1px dashed #aaa; padding: 10px; margin: 10px 0;">
+    <h3>Dirección</h3>
+
+    <div style="margin-bottom: 10px;">
+      <label for="calle">Calle: </label>
+      <input id="calle" type="text" formControlName="calle">
+    </div>
+
+    <div style="margin-bottom: 10px;">
+      <label for="ciudad">Ciudad: </label>
+      <input id="ciudad" type="text" formControlName="ciudad">
+    </div>
+  </div>
+
+  <button type="submit">Enviar</button>
+  <button type="button" (click)="cargarDireccionPrueba()" style="margin-left: 10px;">Cargar Dirección de Prueba</button>
+
+  <!--Mensaje de respuesta en pantalla -->
+  @if (mensajeResultado) {
+  <p style="margin-top: 15px; font-weight: bold; color: #104568;">
+    {{ mensajeResultado }}
+  </p>
+  }
+</form>
+
